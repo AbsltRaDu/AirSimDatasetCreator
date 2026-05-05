@@ -9,22 +9,26 @@ class EuRoCDatasetWriter:
     Создает структуру датасета, похожую на EuRoC MAV.
     '''
 
-    def __init__(self, root_dir: str):
+    def __init__(self, root_dir: str, dataset_name: str):
         self.root_dir = Path(root_dir)
+        self.dataset_name = dataset_name
 
         # Камеры 
-        self.cam0_dir = self.root_dir / "mav0" / "cam0" / "data"
-        self.cam1_dir = self.root_dir / "mav0" / "cam1" / "data"
+        self.cam0_csv_dir = self.root_dir / self.dataset_name / "cam0"
+        self.cam1_csv_dir = self.root_dir / self.dataset_name / "cam1"
+        
+        self.cam0_dir = self.cam0_csv_dir / "data"
+        self.cam1_dir = self.cam1_csv_dir / "data"
         
         # Инерциалка
-        self.imu0_dir = self.root_dir / "mav0" / "imu0"
+        self.imu0_dir = self.root_dir / self.dataset_name / "imu0"
         
         # Коордианты
-        self.gt_dir = self.root_dir / "mav0" / "state_groundtruth_estimate0"
+        self.gt_dir = self.root_dir / self.dataset_name / "state_groundtruth_estimate0"
         
         # Пути к CSV-файлам.
-        self.cam0_csv_path = self.cam0_dir / "data.csv"
-        self.cam1_csv_path = self.cam1_dir / "data.csv"
+        self.cam0_csv_path = self.cam0_csv_dir  / "data.csv"
+        self.cam1_csv_path = self.cam1_csv_dir / "data.csv"
         self.imu_csv_path = self.imu0_dir / "data.csv"
         self.gt_csv_path = self.gt_dir / "data.csv"
 
@@ -54,14 +58,14 @@ class EuRoCDatasetWriter:
         with open(self.gt_csv_path, "w", newline="") as f:
             writer = csv.writer(f)
             writer.writerow([
-                "#timestamp [ns]",
-                "p_RS_R_x [m]",
-                "p_RS_R_y [m]",
-                "p_RS_R_z [m]",
-                "q_RS_w []",
-                "q_RS_x []",
-                "q_RS_y []",
-                "q_RS_z []",
+                "#timestamp",
+                " p_RS_R_x [m]",
+                " p_RS_R_y [m]",
+                " p_RS_R_z [m]",
+                " q_RS_w []",
+                " q_RS_x []",
+                " q_RS_y []",
+                " q_RS_z []",
                 "v_RS_R_x [m s^-1]",
                 "v_RS_R_y [m s^-1]",
                 "v_RS_R_z [m s^-1]",
@@ -115,11 +119,11 @@ class EuRoCDatasetWriter:
             writer = csv.writer(f)
             writer.writerow([timestamp_ns, px, py, pz, qw, qx, qy, qz, vx, vy, vz])
     
-    def write_command_log(self, commands, filename: str = "trajectory_commands.txt"):
+    def write_command_log(self, commands):
         '''
         Сохраняет команды движения рядом с датасетом.
         '''
-        path = self.root_dir / filename
+        path = self.root_dir / f"trajectory_commands_{self.dataset_name}.txt"
 
         with open(path, "w", encoding="utf-8") as f:
             for i, command in enumerate(commands):

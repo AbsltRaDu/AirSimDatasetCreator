@@ -1,0 +1,127 @@
+{
+  "trajectories": [
+    {
+      "id": "long_straight_1000m_mountain_safe",
+      "description": "Прямая траектория примерно на 1000 метров по оси X на безопасной высоте для гористой местности",
+      "estimated_distance_m": 1000,
+      "notes": "Высота увеличена до z=-60.0, чтобы снизить риск столкновения с рельефом.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -60.0, "velocity": 3.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_forward_backward_2000m_mountain_safe",
+      "description": "Длинное движение вперед и назад на безопасной высоте",
+      "estimated_distance_m": 2000,
+      "notes": "Посадка убрана: после длинного маршрута безопаснее делать hover и затем reset симуляции.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -60.0, "velocity": 3.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 3.0 },
+        { "type": "velocity_body", "vx": -5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_square_4000m_mountain_safe",
+      "description": "Большой квадрат: 4 стороны примерно по 1000 метров на безопасной высоте",
+      "estimated_distance_m": 4000,
+      "notes": "Высота z=-70.0, потому что траектория уходит далеко по карте.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -70.0, "velocity": 3.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": -5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": -5.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_rectangle_3000m_mountain_safe",
+      "description": "Прямоугольник 3000 метров на безопасной высоте",
+      "estimated_distance_m": 3000,
+      "notes": "Высота z=-70.0. Посадка убрана.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -70.0, "velocity": 3.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": -5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": -5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_zigzag_5000m_mountain_safe",
+      "description": "Длинная зигзагообразная траектория 5000 метров на безопасной высоте",
+      "estimated_distance_m": 5000,
+      "notes": "Высота z=-80.0, так как маршрут длинный и может проходить над разным рельефом.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -80.0, "velocity": 3.0 },
+
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": -5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": -5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 100.0 },
+
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_step_altitude_2500m_mountain_safe",
+      "description": "Длинная прямая с постепенной сменой высоты для гористой местности",
+      "estimated_distance_m": 2500,
+      "notes": "Высота меняется в безопасном диапазоне z=-50.0...-90.0.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "velocity_z", "vx": 5.0, "vy": 0.0, "z": -50.0, "duration": 100.0 },
+        { "type": "velocity_z", "vx": 5.0, "vy": 0.0, "z": -60.0, "duration": 100.0 },
+        { "type": "velocity_z", "vx": 5.0, "vy": 0.0, "z": -70.0, "duration": 100.0 },
+        { "type": "velocity_z", "vx": 5.0, "vy": 0.0, "z": -80.0, "duration": 100.0 },
+        { "type": "velocity_z", "vx": 5.0, "vy": 0.0, "z": -90.0, "duration": 100.0 },
+
+        { "type": "hover", "duration": 3.0 }
+      ]
+    },
+
+    {
+      "id": "long_l_shape_1500m_mountain_safe",
+      "description": "L-образная траектория на безопасной высоте",
+      "estimated_distance_m": 1500,
+      "notes": "Высота z=-60.0. Посадка убрана.",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 20 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -60.0, "velocity": 3.0 },
+        { "type": "velocity_body", "vx": 5.0, "vy": 0.0, "vz": 0.0, "duration": 200.0 },
+        { "type": "hover", "duration": 2.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 5.0, "vz": 0.0, "duration": 100.0 },
+        { "type": "hover", "duration": 3.0 }
+      ]
+    }
+  ]
+}

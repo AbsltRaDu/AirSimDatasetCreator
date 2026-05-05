@@ -11,11 +11,12 @@ class SensorRecorder:
     Получает данные из AirSim и передает их writer.
     '''
 
-    def __init__(self, drone: AirSimDroneConnector, writer: EuRoCDatasetWriter):
-        self.drone = drone
+    def __init__(self, client: AirSimDroneConnector, writer: EuRoCDatasetWriter):
+        # self.drone = drone
         self.writer = writer
+        self.client = client
         
-        self.client = self.drone.client
+        # self.client = self.drone.client
 
     def record_imu(self):
         imu = self.client.getImuData()

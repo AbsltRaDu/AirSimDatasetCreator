@@ -1,0 +1,114 @@
+{
+  "trajectories": [
+    {
+      "id": "straight_line",
+      "description": "Прямолинейное движение вперед",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -5.0, "velocity": 2.0 },
+
+        { "type": "velocity_body", "vx": 2.0, "vy": 0.0, "vz": 0.0, "duration": 5.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    },
+
+    {
+      "id": "forward_backward",
+      "description": "Движение вперед и назад",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -5.0, "velocity": 2.0 },
+
+        { "type": "velocity_body", "vx": 2.0, "vy": 0.0, "vz": 0.0, "duration": 4.0 },
+
+        { "type": "hover", "duration": 1.0 },
+
+        { "type": "velocity_body", "vx": -2.0, "vy": 0.0, "vz": 0.0, "duration": 4.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    },
+
+    {
+      "id": "square",
+      "description": "Движение по квадрату",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -5.0, "velocity": 2.0 },
+
+        { "type": "velocity_body", "vx": 2.0, "vy": 0.0, "vz": 0.0, "duration": 4.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 2.0, "vz": 0.0, "duration": 4.0 },
+        { "type": "velocity_body", "vx": -2.0, "vy": 0.0, "vz": 0.0, "duration": 4.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": -2.0, "vz": 0.0, "duration": 4.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    },
+
+    {
+      "id": "up_down",
+      "description": "Подъем и спуск",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -3.0, "velocity": 2.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -8.0, "velocity": 2.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    },
+
+    {
+      "id": "yaw_only",
+      "description": "Повороты на месте",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -5.0, "velocity": 2.0 },
+
+        { "type": "yaw_rate", "yaw_rate": 30.0, "duration": 3.0 },
+
+        { "type": "hover", "duration": 1.0 },
+
+        { "type": "yaw_rate", "yaw_rate": -30.0, "duration": 3.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    },
+
+    {
+      "id": "turning_motion",
+      "description": "Движение с одновременным поворотом",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 10 },
+
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -5.0, "velocity": 2.0 },
+
+        { "type": "velocity_body", "vx": 2.0, "vy": 0.0, "vz": 0.0, "duration": 5.0 },
+
+        { "type": "yaw_rate", "yaw_rate": 20.0, "duration": 5.0 },
+
+        { "type": "hover", "duration": 2.0 },
+
+        { "type": "land", "timeout_sec": 10 }
+      ]
+    }
+  ]
+}

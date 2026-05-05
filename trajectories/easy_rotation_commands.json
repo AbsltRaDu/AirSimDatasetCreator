@@ -1,0 +1,150 @@
+{
+  "trajectories": [
+    {
+      "id": "turns_yaw_snake_400m",
+      "description": "Змейка с акцентом на yaw-повороты",
+      "estimated_distance_m": 400,
+      "notes": "Последовательные повороты влево/вправо при движении вперед",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "velocity_body", "vx": 4.0, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 3.0 },
+
+        { "type": "velocity_body", "vx": 4.0, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": -25.0, "duration": 3.0 },
+
+        { "type": "velocity_body", "vx": 4.0, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 3.0 },
+
+        { "type": "velocity_body", "vx": 4.0, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "turns_yaw_left_right_300m",
+      "description": "Чередование поворотов влево и вправо",
+      "estimated_distance_m": 300,
+      "notes": "Короткая траектория для обучения частым изменениям yaw",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 20.0 },
+        { "type": "yaw_rate", "yaw_rate": 35.0, "duration": 2.0 },
+
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 20.0 },
+        { "type": "yaw_rate", "yaw_rate": -35.0, "duration": 2.0 },
+
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 20.0 },
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "altitude_steps_350m",
+      "description": "Ступенчатое изменение высоты при движении",
+      "estimated_distance_m": 350,
+      "notes": "Пошаговое изменение Z вверх и вниз",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -45.0, "velocity": 3.0 },
+
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -45.0, "duration": 20.0 },
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -55.0, "duration": 20.0 },
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -65.0, "duration": 20.0 },
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -55.0, "duration": 20.0 },
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -45.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "altitude_wave_500m",
+      "description": "Плавная волна по высоте",
+      "estimated_distance_m": 500,
+      "notes": "Плавные изменения высоты вверх и вниз",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "velocity_z", "vx": 4.0, "vy": 0.0, "z": -60.0, "duration": 25.0 },
+        { "type": "velocity_z", "vx": 4.0, "vy": 0.0, "z": -70.0, "duration": 25.0 },
+        { "type": "velocity_z", "vx": 4.0, "vy": 0.0, "z": -60.0, "duration": 25.0 },
+        { "type": "velocity_z", "vx": 4.0, "vy": 0.0, "z": -50.0, "duration": 25.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "mixed_random_short_500m",
+      "description": "Смешанная траектория с поворотами и изменением высоты",
+      "estimated_distance_m": 500,
+      "notes": "Комбинация yaw, движения и изменения высоты",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -55.0, "velocity": 3.0 },
+
+        { "type": "velocity_body", "vx": 3.5, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 20.0, "duration": 3.0 },
+
+        { "type": "velocity_z", "vx": 3.5, "vy": 0.0, "z": -65.0, "duration": 25.0 },
+        { "type": "hover", "duration": 3.0 },
+
+        { "type": "yaw_rate", "yaw_rate": -30.0, "duration": 2.0 },
+        { "type": "velocity_body", "vx": 3.5, "vy": 1.0, "vz": 0.0, "duration": 25.0 },
+
+        { "type": "velocity_z", "vx": 3.5, "vy": -1.0, "z": -50.0, "duration": 25.0 },
+
+        { "type": "hover", "duration": 5.0 }
+      ]
+    },
+
+    {
+      "id": "hover_stop_and_go_300m",
+      "description": "Движение с частыми остановками",
+      "estimated_distance_m": 300,
+      "notes": "Обучение различию движения и покоя",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "hover", "duration": 8.0 },
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 8.0 },
+        { "type": "velocity_body", "vx": 0.0, "vy": 3.0, "vz": 0.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 8.0 },
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 10.0 }
+      ]
+    },
+
+    {
+      "id": "hover_yaw_hover_250m",
+      "description": "Зависание с поворотами на месте",
+      "estimated_distance_m": 250,
+      "notes": "Комбинация стояния и вращения",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 3.0 },
+
+        { "type": "hover", "duration": 6.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 4.0 },
+        { "type": "hover", "duration": 6.0 },
+
+        { "type": "velocity_body", "vx": 3.0, "vy": 0.0, "vz": 0.0, "duration": 25.0 },
+
+        { "type": "hover", "duration": 6.0 },
+        { "type": "yaw_rate", "yaw_rate": -25.0, "duration": 4.0 },
+        { "type": "hover", "duration": 8.0 }
+      ]
+    }
+  ]
+}

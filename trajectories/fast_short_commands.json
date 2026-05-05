@@ -1,0 +1,138 @@
+{
+  "trajectories": [
+    {
+      "id": "fast_incline_turns_600m",
+      "description": "Быстрое движение по наклонной с поворотами",
+      "estimated_distance_m": 600,
+      "notes": "Дрон летит быстрее обычного, меняет высоту и делает yaw-повороты",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 0.0, "z": -65.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 3.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 1.5, "z": -80.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": -25.0, "duration": 3.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": -1.5, "z": -60.0, "duration": 25.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "fast_climb_curve_500m",
+      "description": "Быстрый набор высоты с плавным изменением направления",
+      "estimated_distance_m": 500,
+      "notes": "Упор на движение по диагонали вверх и повороты",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -45.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": 1.0, "z": -60.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 20.0, "duration": 4.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": 1.5, "z": -75.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 20.0, "duration": 4.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": 0.0, "z": -85.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "fast_descent_turns_500m",
+      "description": "Быстрое снижение по наклонной с поворотами",
+      "estimated_distance_m": 500,
+      "notes": "Учит модель определять снижение при одновременном движении вперед и yaw-поворотах",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -85.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": 0.0, "z": -70.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": -25.0, "duration": 3.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": -1.0, "z": -55.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 3.0 },
+
+        { "type": "velocity_z", "vx": 5.5, "vy": 1.0, "z": -45.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "fast_diagonal_zigzag_altitude_700m",
+      "description": "Быстрый диагональный зигзаг с изменением высоты",
+      "estimated_distance_m": 700,
+      "notes": "Чередование бокового движения, подъема/снижения и поворотов",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -60.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 2.0, "z": -75.0, "duration": 20.0 },
+        { "type": "yaw_rate", "yaw_rate": 30.0, "duration": 2.5 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": -2.0, "z": -60.0, "duration": 20.0 },
+        { "type": "yaw_rate", "yaw_rate": -30.0, "duration": 2.5 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 2.0, "z": -80.0, "duration": 20.0 },
+        { "type": "yaw_rate", "yaw_rate": 25.0, "duration": 2.5 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": -2.0, "z": -65.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "fast_wave_altitude_turns_800m",
+      "description": "Быстрая волна по высоте с поворотами",
+      "estimated_distance_m": 800,
+      "notes": "Траектория полезна для обучения изменению высоты без резких остановок",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -55.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 0.0, "z": -70.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 15.0, "duration": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 1.0, "z": -85.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": -20.0, "duration": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": -1.0, "z": -65.0, "duration": 25.0 },
+        { "type": "yaw_rate", "yaw_rate": 20.0, "duration": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 0.0, "z": -50.0, "duration": 25.0 },
+
+        { "type": "hover", "duration": 4.0 }
+      ]
+    },
+
+    {
+      "id": "fast_stop_turn_climb_450m",
+      "description": "Быстрое движение с остановками, поворотами и набором высоты",
+      "estimated_distance_m": 450,
+      "notes": "Добавлены короткие зависания, чтобы модель отличала движение от остановки",
+      "commands": [
+        { "type": "takeoff", "timeout_sec": 15 },
+        { "type": "move_to", "x": 0.0, "y": 0.0, "z": -50.0, "velocity": 4.0 },
+
+        { "type": "velocity_z", "vx": 6.0, "vy": 0.0, "z": -65.0, "duration": 20.0 },
+        { "type": "hover", "duration": 3.0 },
+
+        { "type": "yaw_rate", "yaw_rate": 35.0, "duration": 2.0 },
+        { "type": "velocity_z", "vx": 6.0, "vy": 1.5, "z": -80.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 3.0 },
+
+        { "type": "yaw_rate", "yaw_rate": -35.0, "duration": 2.0 },
+        { "type": "velocity_z", "vx": 6.0, "vy": -1.5, "z": -60.0, "duration": 20.0 },
+
+        { "type": "hover", "duration": 5.0 }
+      ]
+    }
+  ]
+}

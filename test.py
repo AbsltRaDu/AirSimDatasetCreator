@@ -10,7 +10,7 @@ from src.AirSimDatasetCreator.TrajectoryExecuter import TrajectoryExecutor
 from source.IP import LAPTOP_IP, DESKTOP_IP
 
 
-with open('trajectories/fast_short_commands.json', 'r', encoding='utf-8') as f:
+with open('trajectories/easy_rotation_commands.json', 'r', encoding='utf-8') as f:
     dct = json.load(f)
     
 for _dct in dct['trajectories']:
@@ -29,7 +29,7 @@ for _dct in dct['trajectories']:
     writer.init_csv_files()
     writer.write_command_log(commands)
 
-    recorder = SensorRecorder(sensor_client, writer=writer)
+    recorder = SensorRecorder(sensor_client, writer=writer, cam0_name='cam0', cam1_name='cam1')
     executer = TrajectoryExecutor(drone=drone, recorder=recorder)
 
     try: 

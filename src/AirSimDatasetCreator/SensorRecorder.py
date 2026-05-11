@@ -11,10 +11,12 @@ class SensorRecorder:
     Получает данные из AirSim и передает их writer.
     '''
 
-    def __init__(self, client: AirSimDroneConnector, writer: EuRoCDatasetWriter):
+    def __init__(self, client: AirSimDroneConnector, writer: EuRoCDatasetWriter, cam0_name: str = "cam0", cam1_name: str = "cam1"):
         # self.drone = drone
         self.writer = writer
         self.client = client
+        self.cam0_name = cam0_name
+        self.cam1_name = cam1_name
         
         # self.client = self.drone.client
 
@@ -36,13 +38,13 @@ class SensorRecorder:
             linear.z_val,
         )
 
-    def record_stereo_images(self, cam0_name: str = "0", cam1_name: str = "1"):
+    def record_stereo_images(self, ):
         """
         Считывает пару RGB-изображений из AirSim и сохраняет их как cam0/cam1.
         """
         responses = self.client.simGetImages([
-            airsim.ImageRequest(cam0_name, airsim.ImageType.Scene, pixels_as_float=False, compress=False),
-            airsim.ImageRequest(cam1_name, airsim.ImageType.Scene, pixels_as_float=False, compress=False),
+            airsim.ImageRequest(self.cam0_name, airsim.ImageType.Scene, pixels_as_float=False, compress=False),
+            airsim.ImageRequest(self.cam1_name, airsim.ImageType.Scene, pixels_as_float=False, compress=False),
         ])
 
         if len(responses) != 2:

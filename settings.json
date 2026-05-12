@@ -7,6 +7,21 @@
     "Drone1": {
       "VehicleType": "SimpleFlight",
       "AutoCreate": true,
+      
+      "Imu": {
+        "SensorType": 2,
+        "Enabled": true,
+
+        "GyroBiasStabilityTau": 1000,
+        "GyroBiasStability": 0.0001,
+        "GyroNoiseDensity": 0.0003394,
+        "GyroRandomWalk": 3.8785e-05,
+
+        "AccelNoiseDensity": 0.004,
+        "AccelRandomWalk": 0.0002,
+        "AccelBiasStabilityTau": 1000,
+        "AccelBiasStability": 0.0001
+      },
 
       "Cameras": {
         "cam0": {

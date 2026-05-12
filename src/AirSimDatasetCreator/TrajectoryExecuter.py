@@ -97,7 +97,7 @@ class TrajectoryExecutor:
             self.recorder.record_once()
     
           
-    def record_during_motion(self, duration, imu_hz=200, camera_hz=20, gt_hz=20):
+    def record_during_motion(self, duration, camera_hz=20, gt_hz=20):
         '''
         Записывает сенсоры в течение duration секунд.
         
@@ -116,11 +116,9 @@ class TrajectoryExecutor:
 
         start_time = time.perf_counter()
 
-        next_imu_time = start_time
         next_camera_time = start_time
         next_gt_time = start_time
 
-        imu_dt = 1.0 / imu_hz
         camera_dt = 1.0 / camera_hz
         gt_dt = 1.0 / gt_hz
 
@@ -129,10 +127,6 @@ class TrajectoryExecutor:
 
             if now - start_time >= duration:
                 break
-
-            if now >= next_imu_time:
-                self.recorder.record_imu()
-                next_imu_time += imu_dt
 
             if now >= next_gt_time:
                 self.recorder.record_ground_truth()
@@ -160,21 +154,12 @@ class TrajectoryExecutor:
             Бесконечный цикл записи сенсоров
             Работает параллельно с движением дрона
             """
-
-            next_imu = time.perf_counter()
             next_cam = time.perf_counter()
 
             # Цикл работает, пока НЕ пришел сигнал остановки
             while not stop_event.is_set():
 
                 now = time.perf_counter()
-
-                if now >= next_imu:
-                    # Считываем данные инерциалку
-                    self.recorder.record_imu()
-
-                    # Планируем следующий момент записи
-                    next_imu += imu_dt
 
                 # Запись stereo-камер
                 if now >= next_cam:
